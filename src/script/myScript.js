@@ -62,19 +62,19 @@ $(document).ready(() => {
 
             if (grade != "") {
                 $("#form2").html(`
-                <div class="grid grid-cols-1 auto-cols-max auto-rows-max sm:grid-cols-2 justify-center rounded shadow-lg">
+                <div class="grid grid-cols-2 justify-center shadow-lg">
 
-                    <div class="w-full h-full flex bg-indigo-500">
-                        <div class="place-items-center text-gray-100 font-bold px-8 py-6">
-                            <p class="text-xl font-extrabold">Total: ${total}</p>
-                            <p class="text-xl font-extrabold">GWA: ${gwa.toFixed(3)}</p>
-                            <p class="text-xl">Remarks: ${grade}</p>
+                    <div class="flex bg-indigo-500 rounded-tl-lg rounded-bl-lg">
+                        <div class="place-items-center text-gray-100 px-8 py-6">
+                            <p class="text-1xl lg:text-base font-medium">Total: ${total}</p>
+                            <p class="text-2xl lg:text-base font-medium">GWA: ${gwa.toFixed(3)}</p>
+                            <p class="text-1xl lg:text-base font-medium">Remarks: ${grade}</p>
                         </div>
                     </div>
 
-                    <div class="w-full h-full flex ${gwa >= 60 ? "bg-lime-500": "bg-red-500"}">
-                        <div class="text-gray-100 font-bold px-8 py-6">
-                            <p class="self-center text-center text-5xl font-extrabold">${gwa >= 60 ? "Passed" : "Failed"}</p>                     
+                    <div class="flex rounded-tr-lg rounded-br-lg ${gwa >= 60 ? "bg-lime-500": "bg-red-500"}">
+                        <div class="text-gray-100 self-center mx-auto">
+                            <p class="text-5xl lg:text-4xl font-extrabold">${gwa >= 60 ? "Passed" : "Failed"}</p>                     
                         </div>    
                     </div>
                 </div>
