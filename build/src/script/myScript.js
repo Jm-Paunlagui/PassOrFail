@@ -66,15 +66,15 @@ $(document).ready(() => {
 
                     <div class="flex bg-indigo-500 rounded-tl-lg rounded-bl-lg">
                         <div class="place-items-center text-gray-100 px-8 py-6">
-                            <p class="text-1xl lg:text-base font-medium">Total: ${total}</p>
-                            <p class="text-2xl md:text-base lg:text-md font-medium">GWA: ${gwa.toFixed(3)}</p>
-                            <p class="text-1xl lg:text-base font-medium">Remarks: ${grade}</p>
+                            <p class="text-sm lg:text-base font-medium">Total: ${total}</p>
+                            <p class="text-sm md:text-base lg:text-md font-medium">GWA: ${gwa.toFixed(3)}</p>
+                            <p class="text-sm lg:text-base font-medium">Remarks: ${grade}</p>
                         </div>
                     </div>
 
                     <div class="flex rounded-tr-lg rounded-br-lg ${gwa >= 60 ? "bg-lime-500": "bg-red-500"}">
                         <div class="text-gray-100 self-center mx-auto">
-                            <p class="text-5xl lg:text-4xl font-extrabold">${gwa >= 60 ? "Passed!" : "Failed!"}</p>                     
+                            <p class="text-3xl font-extrabold">${gwa >= 60 ? "Passed!" : "Failed!"}</p>                     
                         </div>    
                     </div>
                 </div>
