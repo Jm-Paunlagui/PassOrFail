@@ -59,11 +59,9 @@ $(document).ready(() => {
             let gwa = total / 3;
             let grade = "";
             (gwa >= 100) ? grade = "A+" : (gwa >= 90) ? grade = "A" : (gwa >= 80) ? grade = "B" : (gwa >= 70) ? grade = "C" : (gwa >= 60) ? grade = "D" : grade = "F";
-
             if (grade != "") {
                 $("#form2").html(`
                 <div class="grid grid-cols-2 justify-center shadow-lg">
-
                     <div class="flex bg-indigo-500 rounded-tl-lg rounded-bl-lg">
                         <div class="place-items-center text-gray-100 px-8 py-6">
                             <p class="text-sm lg:text-base font-medium">Total: ${total}</p>
@@ -71,8 +69,7 @@ $(document).ready(() => {
                             <p class="text-sm lg:text-base font-medium">Remarks: ${grade}</p>
                         </div>
                     </div>
-
-                    <div class="flex rounded-tr-lg rounded-br-lg ${gwa >= 60 ? "bg-lime-500": "bg-red-500"}">
+                    <div class="flex rounded-tr-lg rounded-br-lg ${gwa >= 60 ? "bg-lime-500" : "bg-red-500"}">
                         <div class="text-gray-100 self-center mx-auto">
                             <p class="text-3xl font-extrabold">${gwa >= 60 ? "Passed!" : "Failed!"}</p>                     
                         </div>    
