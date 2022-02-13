@@ -79,7 +79,7 @@ $(document).ready(() => {
                                         <p class="text-sm lg:text-base font-medium">Remarks: ${grade}</p>
                                     </div>
                                 </div>
-                                <div class="flex rounded-tr-lg rounded-br-lg ${gwa >= 60 ? "bg-lime-500" : "bg-red-500"}">
+                                <div class="flex rounded-tr-lg rounded-br-lg ${gwa >= 60 ? "bg-green-500" : "bg-red-500"}">
                                     <div class="text-gray-100 self-center mx-auto">
                                         <p class="text-3xl font-extrabold">${gwa >= 60 ? "Passed!" : "Failed!"}</p>                     
                                     </div>    
