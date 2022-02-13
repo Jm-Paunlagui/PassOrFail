@@ -1,10 +1,11 @@
 $(document).ready(() => {
+    var clear = $("#result").html(``);
     var max_fields = 11; //maximum input boxes allowed
     var i = 0;
     var template = jQuery.validator.format($.trim($("#addSubject").html()));
     //adds new subject
     $("#add_subject").click(function (e) {
-        $("#result").html(``);
+        clear();
         if (i < max_fields) {
             $(template(i++)).appendTo("#subject_lists");
             $('.rulingz').each(function () {
@@ -29,7 +30,7 @@ $(document).ready(() => {
 
     //remove subjects
     $(document).on('click', '#remove', function () {
-        $("#result").html(``);
+        clear();
         $(this).closest('#sub').remove();
         i--;
     });
@@ -69,32 +70,35 @@ $(document).ready(() => {
                     let grade = "";
                     (gwa >= 100) ? grade = "A+" : (gwa >= 90) ? grade = "A" : (gwa >= 80) ? grade = "B" : (gwa >= 70) ? grade = "C" : (gwa >= 60) ? grade = "D" : grade = "F";
                     if (grade != "") {
+                        clear();
                         $("#result").html(`
-                        <div class="grid grid-cols-2 justify-center shadow-lg">
-                            <div class="flex bg-indigo-500 rounded-tl-lg rounded-bl-lg">
-                                <div class="place-items-center text-gray-100 px-8 py-6">
-                                    <p class="text-sm lg:text-base font-medium">Total: ${sum}</p>
-                                    <p class="text-sm md:text-base lg:text-md font-medium">GWA: ${gwa.toFixed(3)} </p>
-                                    <p class="text-sm lg:text-base font-medium">Remarks: ${grade}</p>
+                            <div class="grid grid-cols-2 justify-center shadow-lg">
+                                <div class="flex bg-indigo-500 rounded-tl-lg rounded-bl-lg">
+                                    <div class="place-items-center text-gray-100 px-8 py-6">
+                                        <p class="text-sm lg:text-base font-medium">Total: ${sum}</p>
+                                        <p class="text-sm md:text-base lg:text-md font-medium">GWA: ${gwa.toFixed(3)} </p>
+                                        <p class="text-sm lg:text-base font-medium">Remarks: ${grade}</p>
+                                    </div>
+                                </div>
+                                <div class="flex rounded-tr-lg rounded-br-lg ${gwa >= 60 ? "bg-lime-500" : "bg-red-500"}">
+                                    <div class="text-gray-100 self-center mx-auto">
+                                        <p class="text-3xl font-extrabold">${gwa >= 60 ? "Passed!" : "Failed!"}</p>                     
+                                    </div>    
                                 </div>
                             </div>
-                            <div class="flex rounded-tr-lg rounded-br-lg ${gwa >= 60 ? "bg-lime-500" : "bg-red-500"}">
-                                <div class="text-gray-100 self-center mx-auto">
-                                    <p class="text-3xl font-extrabold">${gwa >= 60 ? "Passed!" : "Failed!"}</p>                     
-                                </div>    
-                            </div>
-                        </div>
-                        
                         `);
                     } else {
-                        alert("Please check your inputs");
-                        $("#form").trigger("reset");
+                        $("#result").html(`
+                            <div class="flex flex-col text-center mt-12 bg-yellow-500 rounded-lg w-full py-4 mt-5 ">
+                                <div class="px-8 font-semibold text-gray-100">
+                                    <p class="text-base xl:text-xl">Please check your inputs!</p>
+                                </div>
+                            </div>
+                        `);
                     }
                 });
             }
-
         }
     });
-
 });
 
