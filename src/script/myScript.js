@@ -6,7 +6,7 @@ $(document).ready(() => {
     $("#add_subject").click(function (e) {
         $("#result").html(``);
         if (i < max_fields) {
-            $(template(i++)).appendTo("#subject_lists");
+            $(template(1+i++)).appendTo("#subject_lists");
             $('.rulingz').each(function () {
                 $(this).rules("add", {
                     required: true,
