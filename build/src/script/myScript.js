@@ -1,11 +1,10 @@
 $(document).ready(() => {
-    var clear = $("#result").html(``);
     var max_fields = 11; //maximum input boxes allowed
     var i = 0;
     var template = jQuery.validator.format($.trim($("#addSubject").html()));
     //adds new subject
     $("#add_subject").click(function (e) {
-        clear();
+        $("#result").html(``);
         if (i < max_fields) {
             $(template(i++)).appendTo("#subject_lists");
             $('.rulingz').each(function () {
@@ -30,7 +29,7 @@ $(document).ready(() => {
 
     //remove subjects
     $(document).on('click', '#remove', function () {
-        clear();
+        $("#result").html(``);
         $(this).closest('#sub').remove();
         i--;
     });
@@ -70,7 +69,7 @@ $(document).ready(() => {
                     let grade = "";
                     (gwa >= 100) ? grade = "A+" : (gwa >= 90) ? grade = "A" : (gwa >= 80) ? grade = "B" : (gwa >= 70) ? grade = "C" : (gwa >= 60) ? grade = "D" : grade = "F";
                     if (grade != "") {
-                        clear();
+                        $("#result").html(``);
                         $("#result").html(`
                             <div class="grid grid-cols-2 justify-center shadow-lg">
                                 <div class="flex bg-indigo-500 rounded-tl-lg rounded-bl-lg">
