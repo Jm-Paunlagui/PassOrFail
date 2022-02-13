@@ -12,6 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"
         integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://kit.fontawesome.com/07076ceea9.js" crossorigin="anonymous"></script>
     <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
@@ -22,7 +23,7 @@
 <body>
     <div class="flex justify-center min-h-screen overflow-hidden text-gray-900 bg-gray-100">
         <div class="flex justify-center flex-1 max-w-screen-xl m-0 bg-white shadow sm:m-20 sm:rounded-lg">
-            <div class="p-6 lg:w-1/2 xl:w-5/12 sm:p-12">
+            <div class="p-6 lg:w-1/2 xl:w-5/12 sm:p-12 relative">
                 <div class="flex flex-col items-center mt-12">
                     <h1 class="text-2xl font-extrabold xl:text-3xl">Pass or Fail?</h1>
                     <div class="w-full mt-6 border-b-2 border-gray-100"></div>
@@ -36,8 +37,11 @@
                                 class="w-full py-4 mt-5 font-semibold tracking-wide text-gray-100 transition-all duration-300 ease-in-out bg-indigo-500 rounded-lg hover:bg-indigo-700">Get
                                 Results</button>
                         </form>
-                        <div class="relative max-w-xs mx-auto mt-10" id="result"></div>
+                        <div class="max-w-xs mx-auto mt-10" id="result"></div>
                     </div>
+                </div>
+                <div class="text-center font-medium mb-12 absolute inset-x-0 bottom-0">
+                    Made with <i class="fas fa-heart text-red-500"></i>
                 </div>
             </div>
             <div class="flex-1 hidden bg-indigo-100 lg:flex">
@@ -53,10 +57,59 @@
             class="w-full px-8 py-4 mt-5 text-sm font-medium placeholder-gray-500 bg-gray-100 border border-gray-200 rounded-lg subGrade rulingz focus:outline-none focus:border-gray-400 focus:bg-white"
             placeholder="Grade in Subject {0}" />
             <br>
-            <button id="remove">Remove</button>
+            <button id="remove" class="font-medium">Remove</button>
         </div>
     </script>
     <script src="../src/script/myScript.js"></script>
+    <footer class="max-w-2xl px-4 py-16 mx-auto border-gray-200 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+        <div class="overflow-hidden text-center bg-white group">
+            <div class="w-full aspect-w-1 aspect-h-1 xl:aspect-w-7 xl:aspect-h-8">
+                <h2 class="mb-8 font-bold tracking-widest text-gray-900">
+                    Developed by
+                </h2>
+                <div class="subpixel-antialiased font-medium uppercase tracking-wide grid grid-cols-1 md:grid-cols-3">
+                    <h4 class=" text-gray-600 hover:text-gray-800">Paunlagui</h4>
+                    <h4 class=" text-gray-600 hover:text-gray-800">Bueno</h4>
+                    <h4 class=" text-gray-600 hover:text-gray-800">Tolentino</h4>
+                </div>
+            </div>
+            <div class="mt-16 w-full aspect-w-1 aspect-h-1 xl:aspect-w-7 xl:aspect-h-8">
+                <h2 class="mb-8 font-bold tracking-widest text-gray-900">
+                    Follow me on
+                </h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                    <a href="https://www.facebook.com/JmPaunlagui/" class="text-gray-600 hover:text-gray-800">
+                        <i class="fa-brands fa-facebook fa-xl"></i>
+                    </a>
+                    <a href="https://github.com/Jm-Paunlagui" class="text-gray-600 hover:text-gray-800">
+                        <i class="fa-brands fa-github fa-xl"></i>
+                    </a>
+                    <a href="https://www.instagram.com/jmpaunlagui/" class="text-gray-600 hover:text-gray-800">
+                        <i class="fa-brands fa-instagram fa-xl"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@jm_paunlagui" class="text-gray-600 hover:text-gray-800">
+                        <i class="fa-brands fa-tiktok fa-xl"></i>
+                    </a>
+                    <a href="https://twitter.com/itsJm51" class="text-gray-600 hover:text-gray-800">
+                        <i class="fa-brands fa-twitter fa-xl"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/john-moises-paunlagui-2b6b31186/"
+                        class="text-gray-600 hover:text-gray-800">
+                        <i class="fa-brands fa-linkedin fa-xl"></i>
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-center mt-16">
+            <p class="text-base text-gray-400">
+                © 2022 Dev JmPaunlagui. All rights reserved.
+            </p>
+        </div>
+        <div class="flex justify-center mt-2">
+            <p class="text-base text-gray-400">
+                Designed by Jm-Paunlagui
+            </p>
+        </div>
+    </footer>
 </body>
 
 </html>

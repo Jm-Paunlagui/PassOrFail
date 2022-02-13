@@ -1,12 +1,13 @@
+var max_subjects = 11; //maximum input boxes allowed
+var subject_counter = 0; //initial text box count
+
 $(document).ready(() => {
-    var max_fields = 11; //maximum input boxes allowed
-    var i = 0;
     var template = jQuery.validator.format($.trim($("#addSubject").html()));
     //adds new subject
     $("#add_subject").click(function (e) {
         $("#result").html(``);
-        if (i < max_fields) {
-            $(template(1+i++)).appendTo("#subject_lists");
+        if (subject_counter < max_subjects) {
+            $(template(1 + subject_counter++)).appendTo("#subject_lists");
             $('.rulingz').each(function () {
                 $(this).rules("add", {
                     required: true,
@@ -17,7 +18,7 @@ $(document).ready(() => {
             });
         } else {
             $("#result").html(`
-                <div class="flex flex-col text-center mt-12 bg-yellow-500 rounded-lg w-full py-4 mt-5 ">
+                <div class="flex flex-col text-center mt-12 bg-yellow-500 rounded-lg w-full py-4 mt-5 mb-16">
                     <div class = "px-8 font-semibold text-gray-100">
                         <p class="text-base xl:text-lg">You Reached the limits!</p>
                     </div>
@@ -31,7 +32,8 @@ $(document).ready(() => {
     $(document).on('click', '#remove', function () {
         $("#result").html(``);
         $(this).closest('#sub').remove();
-        i--;
+        subject_counter--;
+        alert(rem);
     });
 
     //validate form
@@ -56,7 +58,7 @@ $(document).ready(() => {
             let sum = 0;
             if ($('#subject_lists').children().length == 0) {
                 $("#result").html(`
-                <div class="flex flex-col text-center mt-12 bg-yellow-500 rounded-lg w-full py-4 mt-5 ">
+                <div class="flex flex-col text-center mt-12 bg-yellow-500 rounded-lg w-full py-4 mt-5 mb-16">
                     <div class = "px-8 font-semibold text-gray-100">
                         <p class="text-base xl:text-xl">Please add subjects to calculate!</p>
                     </div>
@@ -71,9 +73,10 @@ $(document).ready(() => {
                     if (grade != "") {
                         $("#result").html(``);
                         $("#result").html(`
-                            <div class="grid grid-cols-2 justify-center shadow-lg">
+                            <div class="grid grid-cols-2 justify-center shadow-lg mb-16">
                                 <div class="flex bg-indigo-500 rounded-tl-lg rounded-bl-lg">
                                     <div class="place-items-center text-gray-100 px-8 py-6">
+                                        <p class="text-sm lg:text-base font-medium">Subjects: ${subject_counter}</p>
                                         <p class="text-sm lg:text-base font-medium">Total: ${sum}</p>
                                         <p class="text-sm md:text-base lg:text-md font-medium">GWA: ${gwa.toFixed(3)} </p>
                                         <p class="text-sm lg:text-base font-medium">Remarks: ${grade}</p>
@@ -88,7 +91,7 @@ $(document).ready(() => {
                         `);
                     } else {
                         $("#result").html(`
-                            <div class="flex flex-col text-center mt-12 bg-yellow-500 rounded-lg w-full py-4 mt-5 ">
+                            <div class="flex flex-col text-center mt-12 bg-yellow-500 rounded-lg w-full py-4 mt-5 mb-16">
                                 <div class="px-8 font-semibold text-gray-100">
                                     <p class="text-base xl:text-xl">Please check your inputs!</p>
                                 </div>
@@ -100,4 +103,3 @@ $(document).ready(() => {
         }
     });
 });
-
