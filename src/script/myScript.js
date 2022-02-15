@@ -28,12 +28,21 @@ $(document).ready(() => {
         e.preventDefault();
     });
 
-    //remove subjects
+    //reoders subjects
+    function reorder() {
+        var reCount = 1;
+        $('.subGrade').each(function () {
+            $(this).attr('placeholder', 'Grade in Subject ' + reCount);
+            reCount++;
+        });
+        subject_counter = reCount - 1;
+    }
+
+    //removes subject
     $(document).on('click', '#remove', function () {
         $("#result").html(``);
         $(this).closest('#sub').remove();
-        subject_counter--;
-        alert(rem);
+        reorder();
     });
 
     //validate form
