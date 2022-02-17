@@ -2,6 +2,24 @@ var max_subjects = 11; //maximum input boxes allowed
 var subject_counter = 0; //initial text box count
 
 $(document).ready(() => {
+
+    toastr.options = {
+        'closeButton': true,
+        'debug': false,
+        'newestOnTop': false,
+        'progressBar': false,
+        'positionClass': 'toast-top-right',
+        'preventDuplicates': true,
+        'showDuration': '1000',
+        'hideDuration': '1000',
+        'timeOut': '5000',
+        'extendedTimeOut': '1000',
+        'showEasing': 'swing',
+        'hideEasing': 'linear',
+        'showMethod': 'fadeIn',
+        'hideMethod': 'fadeOut',
+    }
+
     var template = jQuery.validator.format($.trim($("#addSubject").html()));
     //adds new subject
     $("#add_subject").click(function (e) {
@@ -17,6 +35,7 @@ $(document).ready(() => {
                 });
             });
         } else {
+            toastr.warning("Maximum of " + max_subjects + " subjects allowed");
             $("#result").html(`
                 <div class="flex flex-col text-center mt-12 bg-yellow-500 rounded-lg w-full py-4 mt-5 mb-16">
                     <div class = "px-8 font-semibold text-gray-100">
@@ -56,6 +75,7 @@ $(document).ready(() => {
         errorPlacement: (error, element) => {
             error.addClass("text-red-500 text-xs italic");
             error.insertAfter(element);
+            toastr.warning("No empty fields are allowed");
         },
         highlight: (element, errorClass, validClass) => {
             $(element).addClass("border border-red-500");
@@ -65,11 +85,12 @@ $(document).ready(() => {
         },
         submitHandler: (form) => {
             let sum = 0;
-            if ($('#subject_lists').children().length == 0) {
+            if ($('#subject_lists').children().length < 3) {
+                toastr.warning("Please add at least three(3) subjects or more!");
                 $("#result").html(`
                 <div class="flex flex-col text-center mt-12 bg-yellow-500 rounded-lg w-full py-4 mt-5 mb-16">
                     <div class = "px-8 font-semibold text-gray-100">
-                        <p class="text-base xl:text-xl">Please add subjects to calculate!</p>
+                        <p class="text-base xl:text-xl">Please add at least three(3) subjects to calculate!</p>
                     </div>
                 </div>
                 `);
@@ -99,6 +120,7 @@ $(document).ready(() => {
                             </div>
                         `);
                     } else {
+                        toastr.error("Please check your inputs!");
                         $("#result").html(`
                             <div class="flex flex-col text-center mt-12 bg-yellow-500 rounded-lg w-full py-4 mt-5 mb-16">
                                 <div class="px-8 font-semibold text-gray-100">
